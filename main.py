@@ -4,8 +4,11 @@ from spider import Spider
 from domain import *
 from general import *
 
-PROJECT_NAME = 'myfiles'
-HOMEPAGE = 'https://thenewboston.com'
+print('Enter the name of the project')
+PROJECT_NAME = input()
+print('\n Enter the URL of the website to be crawled')
+HOMEPAGE = input()
+
 DOMAIN_NAME = get_domain_name(HOMEPAGE)
 QUEUE_FILE = PROJECT_NAME + '/queue.txt'
 CRAWLED_FILE = PROJECT_NAME + '/crawled.txt'
@@ -44,6 +47,8 @@ def crawl():
     if len(queued_links) > 0:
         print(str(len(queued_links)) + ' links to be crawled')
         create_jobs()
+
+
 
 create_spiders()
 crawl()
